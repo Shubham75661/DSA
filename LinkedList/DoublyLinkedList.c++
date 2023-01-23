@@ -59,6 +59,13 @@ void deleteHead(Node* &head){
     delete temp;
 }
 
+void deleteAttail(Node* tail){
+    Node* temp = tail;
+    tail = tail->prev;
+    temp->prev = NULL;
+    tail->next = NULL;
+}
+
 void deleteAtpos(Node* &head, Node* &tail, int pos){
     int tempPos = 1;
     Node* temp = head;
@@ -91,7 +98,7 @@ int main() {
     insertAtlast(tail, 11);
     insertAtlast(tail, 12);
     insertAtmiddle(head, tail, 33, 4);
-    deleteHead(head);
+    deleteAttail(tail);
     deleteAtpos(head, tail, 2);
     cout<<"HEAD "<<head->value;
     cout<<endl;
@@ -101,4 +108,4 @@ int main() {
     cout<<endl;
     printData(head);
     return 0;
-}
+}s
